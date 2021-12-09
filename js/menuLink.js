@@ -18,10 +18,24 @@ const menuLink = () => {
                     getPopular('movie')
                         .then(data => renderCard(data.results));
                 }
-                if (target.classList.contains('get-nav__link_top-tv')) {
+                if (target.classList.contains('get-nav__link_popular-tv')) {
                     getPopular('tv')
                         .then(data => renderCard(data.results));
                 }
+                if (target.classList.contains('get-nav__link_top-tv')) {
+                    getTop('tv')
+                        .then(data => renderCard(data.results));
+                }
+                if (target.classList.contains('get-nav__link_top-movies')) {
+                    getTop('movie')
+                        .then(data => renderCard(data.results));
+                }
+                if (target.classList.contains('get-nav__link_top-movies')) {
+                    getTrands()
+                        .then(data => renderCard(data.results));
+                }
+
+
             }
         })
     })
