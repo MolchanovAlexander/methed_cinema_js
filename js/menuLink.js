@@ -30,7 +30,7 @@ const menuLink = () => {
                     getTop('movie')
                         .then(data => renderCard(data.results));
                 }
-                if (target.classList.contains('get-nav__link_top-movies')) {
+                if (target.classList.contains('get-nav__link_link_triends')) {
                     getTrands()
                         .then(data => renderCard(data.results));
                 }
