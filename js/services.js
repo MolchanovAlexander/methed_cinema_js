@@ -14,16 +14,21 @@ const getData = url => {
         .catch(err => console.log(err))
 }
 
+
+
 export const getTrands = async (type = 'all', period = 'week', page = 1) => {
     const url = `${BASE_URL}/trending/${type}/${period}?api_key=${API_KEY}${LANGUAGE}&page=${page}`;
     return await getData(url);
-
+    
 }
 export const getPopular = async (type, page = 1) => {
     const url = `${BASE_URL}${type}/popular?api_key=${API_KEY}${LANGUAGE}&page=${page}`;
     return await getData(url);
 };
 export const getTop = async (type, page = 1) => {
-    const url = `${BASE_URL}${type}/top_rated?api_key=${API_KEY}${LANGUAGE}&page=${page}`;
+    const url = new URL(`${type}/top_rated`, BASE_URL);
+    url.search =`api_key=${API_KEY}${LANGUAGE}&page=${page}`;
+    console.log(url.toString())
     return await getData(url);
+
 };

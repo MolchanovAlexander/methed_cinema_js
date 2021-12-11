@@ -1,9 +1,7 @@
 
-const cardList = document.querySelector('.other-films__list')
+const cardList = document.querySelector('.other-films__list');
 
-const renderCard = async (data) => {
-    cardList.textContent = ""
-    const cards = data.map((item) => {
+const createCard = (item) => {
         const card = document.createElement('li');
         card.className = 'other-films__item';
 
@@ -23,7 +21,10 @@ const renderCard = async (data) => {
         link.append(img);
         card.append(link);
         return card;
-    })
+    };
+const renderCard = async (data) => {
+    cardList.textContent = ""
+    const cards = data.map(createCard)
     cardList.append(...cards);
     console.log(cards)
 
