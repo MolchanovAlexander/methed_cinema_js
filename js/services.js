@@ -1,6 +1,6 @@
 const API_KEY = '611b38bfc402f47502f495e8b2cf9a96';
 const BASE_URL = 'https://api.themoviedb.org/3/';
-const LANGUAGE = '&language=ru-RU';
+const LANGUAGE = '&language=uk-UA';
 
 
 //trending/all/day?api_key=<<api_key>>
@@ -28,7 +28,11 @@ export const getPopular = async (type, page = 1) => {
 export const getTop = async (type, page = 1) => {
     const url = new URL(`${type}/top_rated`, BASE_URL);
     url.search =`api_key=${API_KEY}${LANGUAGE}&page=${page}`;
-    console.log(url.toString())
     return await getData(url);
-
 };
+export const getVideo = async (id, type) => {
+    const url = `${BASE_URL}${type}/${id}/videos?api_key=${API_KEY}${LANGUAGE}`;
+        return await getData(url);
+}
+// https://api.themoviedb.org/3/tv/{tv_id}/videos?api_key=<<api_key>>&language=en-US
+//https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=<<api_key>>&language=en-US
