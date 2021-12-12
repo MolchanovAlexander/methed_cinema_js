@@ -8,7 +8,8 @@ const renderCard = data => {
     Promise.all(data.map(async (item) => {
 
         const video = await getVideo(item.id, item.media_type)
-        const {key} = video.result[0]?.key
+        const key = video?.results[0]?.key;
+
         const card = document.createElement('li');
         card.className = 'other-films__item';
 
@@ -29,9 +30,9 @@ const renderCard = data => {
         link.append(img);
         card.append(link);
         return card;
-    })).then(cards => console.log(cards))
+    })).then(cards => cardList.append(...cards))
 
-    //cardList.append(...cards);
+    
     
 
 }
