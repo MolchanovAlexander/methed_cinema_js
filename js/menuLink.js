@@ -14,8 +14,8 @@ const triggerNav = e => {
         filmWeek.style.display = 'none';
         title.textContent = target.textContent;
         if (target.classList.contains('get-nav__link_popular-movies')) {
-            getPopular('movie')
-                .then(data => renderCard(data.results,'movie' ));
+            getPopular('movie', 1)
+                .then(data => renderCard(data.results, 'movie'));
         }
         if (target.classList.contains('get-nav__link_popular-tv')) {
             getPopular('tv')
@@ -27,7 +27,7 @@ const triggerNav = e => {
         }
         if (target.classList.contains('get-nav__link_top-movies')) {
             getTop('movie')
-                .then(data => renderCard(data.results,'movie'));
+                .then(data => renderCard(data.results, 'movie'));
         }
         if (target.classList.contains('get-nav__link_link_triends')) {
             getTrands()
@@ -39,7 +39,7 @@ const triggerNav = e => {
 }
 const menuLink = () => {
     getNav.forEach(nav => {
-        nav.addEventListener('click', triggerNav )
+        nav.addEventListener('click', triggerNav)
     })
 }
 

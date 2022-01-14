@@ -6,9 +6,7 @@ const slideMenu = ({ open_btn, menu, classActivMenu, close_trigger }) => {
     const navClose = document.querySelectorAll(close_trigger);
 
     const closeMenu = (event) => {
-        console.log(event)
-       
-        
+
         if (event._nav || event.target?.closest(menu) && !event.target?.closest(close_trigger)) {
             return
         }
