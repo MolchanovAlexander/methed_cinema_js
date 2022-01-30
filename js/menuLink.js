@@ -1,4 +1,4 @@
-import { getPopular, getTop } from "./services.js";
+import { getPopular, getTop, getTrands } from "./services.js";
 
 import renderCard from "./renderCard.js";
 
@@ -29,7 +29,7 @@ const triggerNav = e => {
             getTop('movie')
                 .then(data => renderCard(data.results, 'movie'));
         }
-        if (target.classList.contains('get-nav__link_link_triends')) {
+        if (target.classList.contains('get-nav__link_triends')) {
             getTrands()
                 .then(data => renderCard(data.results));
         }

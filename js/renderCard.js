@@ -4,9 +4,9 @@ const cardList = document.querySelector('.other-films__list');
 
 const renderCard = data => {
     cardList.textContent = "";
-
+    console.log(data);
     Promise.all(data.map(async (item) => {
-
+        console.log(item);
         let key = 0;
         const video = await getVideo(item.id, item.media_type)
         console.log(video);
