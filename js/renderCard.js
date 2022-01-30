@@ -1,15 +1,15 @@
 import { getVideo } from "./services.js";
 
 const cardList = document.querySelector('.other-films__list');
-
-const renderCard = data => {
+//item.media_type
+const renderCard = (data, type  ) => {
     cardList.textContent = "";
-    console.log(data);
-    Promise.all(data.map(async (item) => {
-        console.log(item);
+
+    Promise.all(data.map(async(item) => {
+
         let key = 0;
-        const video = await getVideo(item.id, item.media_type)
-        console.log(video);
+        const video = await getVideo(item.id, type || item.media_type)
+
         if (video.results[0]) {
             key = video.results[0]?.key;
         }
